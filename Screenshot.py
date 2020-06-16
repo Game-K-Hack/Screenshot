@@ -8,8 +8,7 @@
 ##                                                ##                                                                 ##
 #######################################################################################################################
 ##                                                                                                                   ##
-##      Détecte si la touche "Imprime écran" est enfoncer et prend un screenshot pour l'enregistrer dans :           ##
-##      "D:\Pictures\Screenshot\"                                                                                    ##
+##    Détecte si la touche "Imprime écran" est enfoncer et prend un screenshot pour l'enregistrer dans un dossier    ##
 ##                                                                                                                   ##
 #######################################################################################################################
 
@@ -19,12 +18,16 @@ import datetime
 
 #######################################################################################################################
 
+folder = "Le chemin vers votre dossier"
+
+#######################################################################################################################
+
 def on_press(key):
     if key == Key.print_screen:
         myScreenshot = pyautogui.screenshot()
         date = datetime.datetime.now()
         screenshot_date = (str(date.day) + "-" + str(date.month) + "-" + str(date.year) + " " + str(date.hour) + "-" + str(date.minute) + "-" + str(date.second))
-        myScreenshot.save("D:\Pictures\Screenshot\screenshot " + str(screenshot_date) + ".png")
+        myScreenshot.save(str(folder) + "\screenshot " + str(screenshot_date) + ".png")
 
 #######################################################################################################################
 
